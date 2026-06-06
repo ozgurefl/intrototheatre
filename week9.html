@@ -117,37 +117,12 @@ button:hover{
     margin:20px 0;
 }
 
-textarea{
-    width:100%;
-    min-height:180px;
-    font-size:28px;
-    padding:15px;
-    margin-top:20px;
-}
-
-.progress{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    background:#0057b8;
-    color:white;
-    text-align:center;
-    padding:10px;
-    font-size:24px;
-    font-weight:bold;
-}
-
 .center{
     text-align:center;
 }
 </style>
 </head>
 <body>
-
-<div class="progress">
-Subtext Detective Lesson | Use ← and → Arrow Keys to Navigate
-</div>
 
 <!-- SLIDE 1 -->
 
@@ -421,45 +396,19 @@ Trying not to attract attention
 <section class="slide">
 <div class="container">
 
-<h2>Think • Pair • Share</h2>
+<h2>Discussion & Reflection</h2>
 
 <ul class="big-list">
 <li>What is the surface conversation?</li>
-
 <li>What is the hidden conversation?</li>
-
 <li>Which line provides the strongest clue?</li>
-
 <li>Why don't the characters say what they really mean?</li>
 </ul>
 
-</div>
-</section>
-
-<!-- SLIDE 12 -->
-
-<section class="slide">
-<div class="container">
-
-<h2>Your Turn ✍️</h2>
-
-<p>
-Write a short scene in which characters discuss
-something ordinary while secretly worrying about
-something important.
+<p style="font-size:34px; margin-top:40px;">
+What makes subtext more powerful than simply stating
+the hidden meaning directly?
 </p>
-
-<p>
-Examples:
-</p>
-
-<ul class="big-list">
-<li>Talking about weather while discussing a breakup</li>
-<li>Talking about food while fearing political change</li>
-<li>Talking about a school dance while worried about social status</li>
-</ul>
-
-<textarea placeholder="Write your scene here..."></textarea>
 
 </div>
 </section>
@@ -470,55 +419,42 @@ Examples:
 </div>
 
 <script>
-
 const slides = document.querySelectorAll('.slide');
 let currentSlide = 0;
 
 function showSlide(index){
-
-slides.forEach(slide=>{
-slide.classList.remove('active');
-});
-
-slides[index].classList.add('active');
+    slides.forEach(slide=>{
+        slide.classList.remove('active');
+    });
+    slides[index].classList.add('active');
 }
 
 function nextSlide(){
-
-if(currentSlide < slides.length - 1){
-currentSlide++;
-showSlide(currentSlide);
-}
-
+    if(currentSlide < slides.length - 1){
+        currentSlide++;
+        showSlide(currentSlide);
+    }
 }
 
 function prevSlide(){
-
-if(currentSlide > 0){
-currentSlide--;
-showSlide(currentSlide);
-}
-
+    if(currentSlide > 0){
+        currentSlide--;
+        showSlide(currentSlide);
+    }
 }
 
 function reveal(id){
-
-document.getElementById(id).style.display='block';
-
+    document.getElementById(id).style.display='block';
 }
 
 document.addEventListener('keydown', function(e){
-
-if(e.key === 'ArrowRight'){
-nextSlide();
-}
-
-if(e.key === 'ArrowLeft'){
-prevSlide();
-}
-
+    if(e.key === 'ArrowRight'){
+        nextSlide();
+    }
+    if(e.key === 'ArrowLeft'){
+        prevSlide();
+    }
 });
-
 </script>
 
 </body>
