@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Playwright's Dilemma • 1953 Blacklist Simulator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            font-family: 'Georgia', 'Times New Roman', serif;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .simulator-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fef7e0;
+            border-radius: 48px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+            overflow: hidden;
+            border: 1px solid #d4a373;
+        }
+
+        .header {
+            background: #8b3a2b;
+            color: #fefae0;
+            padding: 1.8rem 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        .year-tag {
+            display: inline-block;
+            background: #e9edc9;
+            color: #5e2e1c;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-top: 0.5rem;
+        }
+
+        .content {
+            padding: 2rem;
+        }
+
+        .scene-card {
+            background: #fff8f0;
+            border-radius: 28px;
+            padding: 1.8rem;
+            margin-bottom: 1.8rem;
+            border-left: 8px solid #bc6c25;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .scene-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #7f4f24;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .scene-text {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #2c2b28;
+            margin-bottom: 1.5rem;
+        }
+
+        .choice-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 1.5rem 0;
+        }
+
+        .choice-btn {
+            background: #f4e9d8;
+            border: 2px solid #d4a373;
+            border-radius: 60px;
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
+            font-family: inherit;
+            font-weight: 600;
+            color: #5e3a1f;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .choice-btn:hover {
+            background: #e6d5b8;
+            transform: translateX(8px);
+            border-color: #9c6644;
+        }
+
+        .outcome-box {
+            background: #2d2b26;
+            color: #fefae0;
+            border-radius: 28px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .outcome-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.8rem;
+            color: #ffb74d;
+        }
+
+        .reset-btn {
+            background: #bc6c25;
+            color: white;
+            border: none;
+            border-radius: 60px;
+            padding: 0.8rem 1.8rem;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: 0.2s;
+            width: 100%;
+        }
+
+        .reset-btn:hover {
+            background: #9c5a2a;
+            transform: scale(0.98);
+        }
+
+        .historical-note {
+            font-size: 0.85rem;
+            text-align: center;
+            margin-top: 1.5rem;
+            color: #7f6b5a;
+            border-top: 1px solid #e6d5b8;
+            padding-top: 1rem;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            .content { padding: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="simulator-container">
+    <div class="header">
+        <h1>🎭 THE PLAYWRIGHT'S DILEMMA</h1>
+        <p>Washington D.C. • 1953</p>
+        <div class="year-tag">House Un-American Activities Committee Hearing</div>
+    </div>
+    <div class="content">
+        <div class="scene-card">
+            <div class="scene-title">
+                <span>📜</span> Your Situation
+            </div>
+            <div class="scene-text">
+                You are <strong>Eleanor Vance</strong>, a successful Broadway playwright. Your play <em>"The Union Street"</em> — a quiet drama about factory workers — has been running for six months.  
+                <br><br>
+                This morning, you received a subpoena. The HUAC wants to question you about your "associations with subversive elements." Three actors and one stage manager who worked with you have been named. They want you to confirm their identities and name others.
+                <br><br>
+                If you cooperate, your next play will open as scheduled. If you refuse, you will be blacklisted — no theatre will hire you, your current play will close, and your reputation will be destroyed.
+                <br><br>
+                <strong>What do you do?</strong>
+            </div>
+
+            <div id="choiceArea">
+                <div class="choice-buttons">
+                    <button class="choice-btn" data-choice="cooperate">🤝 COOPERATE — I will name names to protect my career and my cast's jobs.</button>
+                    <button class="choice-btn" data-choice="refuse">🛡️ REFUSE — I will take the 5th Amendment and risk blacklisting.</button>
+                    <button class="choice-btn" data-choice="allegory">🎭 ALLEGORY — I will testify but speak only in metaphors, refusing direct answers.</button>
+                    <button class="choice-btn" data-choice="flee">✈️ FLEE — I will leave the country and write in exile.</button>
+                </div>
+            </div>
+
+            <div id="outcomeArea" style="display: none;">
+                <div class="outcome-box" id="outcomeContent"></div>
+                <button class="reset-btn" id="resetSimulation">⟳ Start Over / New Decision</button>
+            </div>
+            <div class="historical-note">
+                ⚠️ Based on real testimonies of artists like Arthur Miller, Elia Kazan, and Dalton Trumbo.
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const outcomes = {
+        cooperate: {
+            title: "🤝 The Price of Survival",
+            text: "You name three names. Your next play opens to rave reviews. But the actors you named are blacklisted — one never works again. At industry parties, people avoid you. You wake up at 3 AM replaying the hearing. Years later, your memoir is ghostwritten. Critics call it 'evasive.' You wonder: was success worth the silence?"
+        },
+        refuse: {
+            title: "🛡️ The Courage to Resist",
+            text: "You refuse to answer. The committee cites you for contempt. Your play closes within a week. No producer will return your calls. You write under a pseudonym for small magazines. But other blacklisted artists find you. You form a secret writing collective. Twenty years later, your testimony is taught in drama schools. They call you 'a conscience of the stage.'"
+        },
+        allegory: {
+            title: "🎭 The Allegorist's Path",
+            text: "You testify, but you speak in parables. 'In my play about birds,' you say, 'some birds were afraid of the dark. The farmer locked them up. That's all I know.' The committee is frustrated but cannot cite you. You return home and write The Cage — a play about imprisoned songbirds. It wins the Pulitzer. Everyone knows what it means. No one can prove it."
+        },
+        flee: {
+            title: "✈️ Exile & Memory",
+            text: "You leave for London. Your work is performed in Paris and Berlin, but never on Broadway. You watch from afar as friends are ruined. In 1965, you return. The Red Scare is over, but your name is forgotten. A young director finds your plays in an archive. 'You were right to leave,' she says. 'But we needed you here.' You write one more play. It opens Off-Broadway to standing ovations."
+        }
+    };
+
+    const choiceButtons = document.querySelectorAll('.choice-btn');
+    const choiceAreaDiv = document.getElementById('choiceArea');
+    const outcomeAreaDiv = document.getElementById('outcomeArea');
+    const outcomeContent = document.getElementById('outcomeContent');
+    const resetBtn = document.getElementById('resetSimulation');
+
+    function showOutcome(choiceKey) {
+        const data = outcomes[choiceKey];
+        outcomeContent.innerHTML = `
+            <div class="outcome-title">${data.title}</div>
+            <p>${data.text}</p>
+            <p style="margin-top: 1rem; font-style: italic; font-size: 0.9rem;">— This choice echoes the real dilemmas of the blacklist era. —</p>
+        `;
+        choiceAreaDiv.style.display = 'none';
+        outcomeAreaDiv.style.display = 'block';
+    }
+
+    choiceButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const choice = btn.getAttribute('data-choice');
+            showOutcome(choice);
+        });
+    });
+
+    resetBtn.addEventListener('click', () => {
+        choiceAreaDiv.style.display = 'block';
+        outcomeAreaDiv.style.display = 'none';
+    });
+</script>
+</body>
+</html>
