@@ -1,0 +1,526 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subtext Detective: Interactive Whiteboard Lesson</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:white;
+    color:#111;
+}
+
+.slide{
+    display:none;
+    min-height:100vh;
+    padding:60px;
+}
+
+.active{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.container{
+    max-width:1400px;
+    margin:auto;
+}
+
+h1{
+    font-size:56px;
+    margin-bottom:20px;
+}
+
+h2{
+    font-size:46px;
+    margin-bottom:20px;
+}
+
+p{
+    font-size:32px;
+    line-height:1.8;
+}
+
+.scene{
+    background:#f5f7fa;
+    border-left:12px solid #0057b8;
+    padding:35px;
+    border-radius:10px;
+}
+
+.dialogue{
+    font-size:34px;
+    line-height:2;
+}
+
+.question{
+    font-size:42px;
+    font-weight:bold;
+    color:#0057b8;
+    margin-top:25px;
+}
+
+.reveal{
+    display:none;
+    margin-top:30px;
+    background:#dff5df;
+    border-left:10px solid #2e8b57;
+    padding:25px;
+    font-size:34px;
+    border-radius:10px;
+}
+
+button{
+    font-size:30px;
+    padding:18px 35px;
+    margin-top:20px;
+    cursor:pointer;
+    border:none;
+    border-radius:10px;
+    background:#0057b8;
+    color:white;
+}
+
+button:hover{
+    background:#003d80;
+}
+
+.controls{
+    position:fixed;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:100;
+}
+
+.controls button{
+    margin:10px;
+}
+
+.highlight{
+    background:yellow;
+    padding:4px 8px;
+    border-radius:5px;
+}
+
+.big-list li{
+    font-size:34px;
+    margin:20px 0;
+}
+
+textarea{
+    width:100%;
+    min-height:180px;
+    font-size:28px;
+    padding:15px;
+    margin-top:20px;
+}
+
+.progress{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    background:#0057b8;
+    color:white;
+    text-align:center;
+    padding:10px;
+    font-size:24px;
+    font-weight:bold;
+}
+
+.center{
+    text-align:center;
+}
+</style>
+</head>
+<body>
+
+<div class="progress">
+Subtext Detective Lesson | Use ← and → Arrow Keys to Navigate
+</div>
+
+<!-- SLIDE 1 -->
+
+<section class="slide active">
+<div class="container center">
+
+<h1>🎭 Subtext Detective</h1>
+
+<p>
+Today we will learn how writers create
+<strong>hidden meaning</strong> beneath dialogue.
+</p>
+
+<p>
+Characters say one thing...
+<br>
+but mean something else.
+</p>
+
+</div>
+</section>
+
+<!-- SLIDE 2 -->
+
+<section class="slide">
+<div class="container">
+
+<h2>What is Subtext?</h2>
+
+<p>
+Subtext is the hidden meaning underneath spoken words.
+</p>
+
+<p>
+The audience must infer what characters really think,
+feel, or fear.
+</p>
+
+<p>
+Good writers often avoid having characters say
+everything directly.
+</p>
+
+</div>
+</section>
+
+<!-- SLIDE 3 -->
+
+<section class="slide">
+<div class="container">
+
+<h2>Sample Scene</h2>
+
+<div class="scene">
+
+<div class="dialogue">
+
+<p><strong>JUNE:</strong> Are you taking the blue suitcase or the brown one?</p>
+
+<p><strong>RAY:</strong> The brown one. It doesn't attract attention.</p>
+
+<p><strong>JUNE:</strong> You've never cared about that before.</p>
+
+<p><strong>RAY:</strong> People notice more these days.</p>
+
+<p><strong>JUNE:</strong> It's only a weekend trip.</p>
+
+<p><strong>RAY:</strong> That's what we're calling it?</p>
+
+<p><strong>JUNE:</strong> We agreed not to discuss it.</p>
+
+<p><strong>RAY:</strong> Right.</p>
+
+<p><strong>JUNE:</strong> Should I pack your good jacket?</p>
+
+<p><strong>RAY:</strong> No. I'd rather blend in.</p>
+
+<p><strong>JUNE:</strong> Blend in where?</p>
+
+<p><strong>RAY:</strong> Anywhere.</p>
+
+<p><strong>JUNE:</strong> You think they'll ask questions?</p>
+
+<p><strong>RAY:</strong> I think they already have.</p>
+
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- SLIDE 4 -->
+
+<section class="slide">
+<div class="container">
+
+<h2>Question 1</h2>
+
+<div class="question">
+What are the characters discussing on the surface?
+</div>
+
+<button onclick="reveal('r1')">Reveal Answer</button>
+
+<div class="reveal" id="r1">
+They appear to be discussing packing for a trip:
+suitcases, clothing, and travel arrangements.
+</div>
+
+</div>
+</section>
+
+<!-- SLIDE 5 -->
+
+<section class="slide">
+<div class="container">
+
+<h2>Clue #1</h2>
+
+<p class="dialogue">
+"The brown one. It doesn't attract attention."
+</p>
+
+<div class="question">
+Why would a suitcase need to avoid attention?
+</div>
+
+<button onclick="reveal('r2')">Reveal Discussion Point</button>
+
+<div class="reveal" id="r2">
+This suggests Ray is worried about being noticed.
+That concern seems bigger than choosing luggage.
+</div>
+
+</div>
+</section>
+
+<!-- SLIDE 6 -->
+
+<section class="slide">
+<div class="container">
+
+<h2>Clue #2</h2>
+
+<p class="dialogue">
+"People notice more these days."
+</p>
+
+<div class="question">
+What does this imply about society?
+</div>
+
+<button onclick="reveal('r3')">Reveal Discussion Point</button>
+
+<div class="reveal" id="r3">
+The social climate may have changed.
+People may be watching, judging, or reporting others.
+</div>
+
+</div>
+</section>
+
+<!-- SLIDE 7 -->
+
+<section class="slide">
+<div class="container">
+
+<h2>Clue #3</h2>
+
+<p class="dialogue">
+"You think they'll ask questions?"
+</p>
+
+<p class="dialogue">
+"I think they already have."
+</p>
+
+<div class="question">
+Who might "they" be?
+</div>
+
+<button onclick="reveal('r4')">Reveal Discussion Point</button>
+
+<div class="reveal" id="r4">
+The vague word "they" creates mystery and tension.
+The characters seem concerned about authority,
+surveillance, or public suspicion.
+</div>
+
+</div>
+</section>
+
+<!-- SLIDE 8 -->
+
+<section class="slide">
+<div class="container">
+
+<h2>Putting the Clues Together</h2>
+
+<ul class="big-list">
+<li>✔ Avoiding attention</li>
+<li>✔ Blending in</li>
+<li>✔ Being noticed</li>
+<li>✔ Questions from others</li>
+<li>✔ Refusing to discuss something directly</li>
+</ul>
+
+<div class="question">
+What hidden concern do these clues suggest?
+</div>
+
+</div>
+</section>
+
+<!-- SLIDE 9 -->
+
+<section class="slide">
+<div class="container">
+
+<h2>Possible Interpretation</h2>
+
+<button onclick="reveal('r5')">Reveal Interpretation</button>
+
+<div class="reveal" id="r5">
+The characters may fear political scrutiny,
+social persecution, investigation,
+or a dangerous change in society.
+
+The trip may not be the real issue.
+It may symbolize escape, relocation,
+or uncertainty about the future.
+</div>
+
+</div>
+</section>
+
+<!-- SLIDE 10 -->
+
+<section class="slide">
+<div class="container">
+
+<h2>Surface vs. Subtext</h2>
+
+<p style="font-size:34px;">
+<span class="highlight">Surface:</span>
+Packing for a trip
+</p>
+
+<p style="font-size:34px;">
+<span class="highlight">Subtext:</span>
+Fear of being watched, questioned,
+or judged
+</p>
+
+<p style="font-size:34px;">
+<span class="highlight">Surface:</span>
+Choosing luggage
+</p>
+
+<p style="font-size:34px;">
+<span class="highlight">Subtext:</span>
+Trying not to attract attention
+</p>
+
+</div>
+</section>
+
+<!-- SLIDE 11 -->
+
+<section class="slide">
+<div class="container">
+
+<h2>Think • Pair • Share</h2>
+
+<ul class="big-list">
+<li>What is the surface conversation?</li>
+
+<li>What is the hidden conversation?</li>
+
+<li>Which line provides the strongest clue?</li>
+
+<li>Why don't the characters say what they really mean?</li>
+</ul>
+
+</div>
+</section>
+
+<!-- SLIDE 12 -->
+
+<section class="slide">
+<div class="container">
+
+<h2>Your Turn ✍️</h2>
+
+<p>
+Write a short scene in which characters discuss
+something ordinary while secretly worrying about
+something important.
+</p>
+
+<p>
+Examples:
+</p>
+
+<ul class="big-list">
+<li>Talking about weather while discussing a breakup</li>
+<li>Talking about food while fearing political change</li>
+<li>Talking about a school dance while worried about social status</li>
+</ul>
+
+<textarea placeholder="Write your scene here..."></textarea>
+
+</div>
+</section>
+
+<div class="controls">
+<button onclick="prevSlide()">⬅ Previous</button>
+<button onclick="nextSlide()">Next ➡</button>
+</div>
+
+<script>
+
+const slides = document.querySelectorAll('.slide');
+let currentSlide = 0;
+
+function showSlide(index){
+
+slides.forEach(slide=>{
+slide.classList.remove('active');
+});
+
+slides[index].classList.add('active');
+}
+
+function nextSlide(){
+
+if(currentSlide < slides.length - 1){
+currentSlide++;
+showSlide(currentSlide);
+}
+
+}
+
+function prevSlide(){
+
+if(currentSlide > 0){
+currentSlide--;
+showSlide(currentSlide);
+}
+
+}
+
+function reveal(id){
+
+document.getElementById(id).style.display='block';
+
+}
+
+document.addEventListener('keydown', function(e){
+
+if(e.key === 'ArrowRight'){
+nextSlide();
+}
+
+if(e.key === 'ArrowLeft'){
+prevSlide();
+}
+
+});
+
+</script>
+
+</body>
+</html>
+```
