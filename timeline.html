@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Theatre History Timeline</title>
+
+<style>
+body{
+    font-family:Arial, sans-serif;
+    background:#f4f4f4;
+    margin:0;
+    padding:0;
+}
+
+header{
+    background:#222;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+.timeline{
+    max-width:1200px;
+    margin:auto;
+    padding:20px;
+}
+
+.period{
+    background:white;
+    margin:20px 0;
+    border-left:8px solid #444;
+    border-radius:8px;
+    overflow:hidden;
+    box-shadow:0 2px 6px rgba(0,0,0,.15);
+}
+
+.period button{
+    width:100%;
+    text-align:left;
+    border:none;
+    background:#333;
+    color:white;
+    padding:18px;
+    font-size:1.2rem;
+    cursor:pointer;
+}
+
+.content{
+    display:none;
+    padding:20px;
+}
+
+.quiz{
+    background:#eef5ff;
+    padding:15px;
+    margin-top:15px;
+    border-radius:6px;
+}
+
+.answer{
+    display:none;
+    color:green;
+    font-weight:bold;
+    margin-top:10px;
+}
+
+.reminder{
+    background:#fff8d6;
+    padding:10px;
+    border-left:4px solid orange;
+    margin-top:15px;
+}
+</style>
+
+<script>
+function toggleContent(id){
+    let section=document.getElementById(id);
+
+    if(section.style.display==="block"){
+        section.style.display="none";
+    } else{
+        section.style.display="block";
+    }
+}
+
+function showAnswer(id){
+    document.getElementById(id).style.display="block";
+}
+</script>
+
+</head>
+
+<body>
+
+<header>
+<h1>The History of Theatre</h1>
+<h2>Interactive Timeline Study Guide</h2>
+<p>ENG214 Introduction to Theatre</p>
+</header>
+
+<div class="timeline">
+
+<!-- Ancient -->
+<div class="period">
+<button onclick="toggleContent('greece')">
+Ancient Greek & Roman Theatre (c. 500 BCE–500 CE)
+</button>
+
+<div class="content" id="greece">
+
+<h3>Key Ideas</h3>
+<ul>
+<li>Origins of Western drama</li>
+<li>Religious festivals honoring Dionysus</li>
+<li>Development of tragedy and comedy</li>
+<li>Large outdoor amphitheatres</li>
+<li>Use of masks and chorus</li>
+</ul>
+
+<h3>Important Playwrights</h3>
+<ul>
+<li>Aeschylus</li>
+<li>Sophocles</li>
+<li>Euripides</li>
+<li>Aristophanes</li>
+<li>Plautus</li>
+<li>Terence</li>
+</ul>
+
+<div class="reminder">
+Remember: Greek theatre emphasized fate and the gods, while Roman theatre focused more on entertainment and spectacle.
+</div>
+
+<div class="quiz">
+<strong>Knowledge Check:</strong><br>
+What group commented on the action of a Greek play?
+<br><br>
+<button onclick="showAnswer('a1')">Show Answer</button>
+<div class="answer" id="a1">The Chorus.</div>
+</div>
+
+</div>
+</div>
+
+<!-- Medieval -->
+<div class="period">
+<button onclick="toggleContent('medieval')">
+Medieval & Renaissance Theatre (500–1600)
+</button>
+
+<div class="content" id="medieval">
+
+<h3>Medieval Theatre</h3>
+<ul>
+<li>Mystery Plays</li>
+<li>Miracle Plays</li>
+<li>Morality Plays</li>
+<li>Performed by guilds</li>
+</ul>
+
+<h3>Renaissance Theatre</h3>
+<ul>
+<li>Renewed interest in classical learning</li>
+<li>Permanent theatres developed</li>
+<li>Humanism influenced drama</li>
+</ul>
+
+<h3>Major Figure</h3>
+<ul>
+<li>William Shakespeare</li>
+</ul>
+
+<div class="reminder">
+Remember: Renaissance theatre shifted attention from religious themes to human experience.
+</div>
+
+<div class="quiz">
+<strong>Knowledge Check:</strong><br>
+What cultural movement influenced Renaissance drama?
+<br><br>
+<button onclick="showAnswer('a2')">Show Answer</button>
+<div class="answer" id="a2">Humanism.</div>
+</div>
+
+</div>
+</div>
+
+<!-- Restoration -->
+<div class="period">
+<button onclick="toggleContent('restoration')">
+Restoration & 18th-Century Theatre (1660–1800)
+</button>
+
+<div class="content" id="restoration">
+
+<h3>Key Features</h3>
+<ul>
+<li>Theatres reopened after Puritan rule</li>
+<li>Women appeared on stage professionally</li>
+<li>Comedy of Manners became popular</li>
+<li>Focus on wit and social satire</li>
+</ul>
+
+<div class="reminder">
+Remember: Restoration comedy often mocked upper-class behaviour.
+</div>
+
+<div class="quiz">
+<strong>Knowledge Check:</strong><br>
+What major change occurred regarding performers?
+<br><br>
+<button onclick="showAnswer('a3')">Show Answer</button>
+<div class="answer" id="a3">Women were allowed to perform on stage.</div>
+</div>
+
+</div>
+</div>
+
+<!-- Romanticism -->
+<div class="period">
+<button onclick="toggleContent('romantic')">
+Romanticism & Melodrama (1800–1850)
+</button>
+
+<div class="content" id="romantic">
+
+<h3>Key Characteristics</h3>
+<ul>
+<li>Emotion over reason</li>
+<li>Heroic individuals</li>
+<li>Spectacular staging</li>
+<li>Clear heroes and villains</li>
+</ul>
+
+<div class="reminder">
+Remember: Melodrama aimed to create strong emotional reactions from audiences.
+</div>
+
+<div class="quiz">
+<strong>Knowledge Check:</strong><br>
+What is the defining feature of melodrama?
+<br><br>
+<button onclick="showAnswer('a4')">Show Answer</button>
+<div class="answer" id="a4">Strong emotional storytelling with clear moral oppositions.</div>
+</div>
+
+</div>
+</div>
+
+<!-- Realism -->
+<div class="period">
+<button onclick="toggleContent('realism')">
+Realism & Naturalism (1850–1900)
+</button>
+
+<div class="content" id="realism">
+
+<h3>Key Features</h3>
+<ul>
+<li>Everyday life portrayed accurately</li>
+<li>Psychological depth</li>
+<li>Detailed realistic settings</li>
+<li>Social issues explored</li>
+</ul>
+
+<h3>Important Playwrights</h3>
+<ul>
+<li>Henrik Ibsen</li>
+<li>Anton Chekhov</li>
+<li>Émile Zola</li>
+</ul>
+
+<div class="reminder">
+Remember: Realism asks "How do ordinary people actually live?"
+</div>
+
+<div class="quiz">
+<strong>Knowledge Check:</strong><br>
+Which playwright wrote A Doll's House?
+<br><br>
+<button onclick="showAnswer('a5')">Show Answer</button>
+<div class="answer" id="a5">Henrik Ibsen.</div>
+</div>
+
+</div>
+</div>
+
+<!-- Modernism -->
+<div class="period">
+<button onclick="toggleContent('modernism')">
+Modernism & Absurdism (1900–1960)
+</button>
+
+<div class="content" id="modernism">
+
+<h3>Modernist Ideas</h3>
+<ul>
+<li>Experimentation</li>
+<li>Breaking traditional structures</li>
+<li>Symbolism and expressionism</li>
+</ul>
+
+<h3>Theatre of the Absurd</h3>
+<ul>
+<li>Meaninglessness of existence</li>
+<li>Circular dialogue</li>
+<li>Illogical situations</li>
+</ul>
+
+<h3>Key Playwrights</h3>
+<ul>
+<li>Samuel Beckett</li>
+<li>Eugène Ionesco</li>
+</ul>
+
+<div class="quiz">
+<strong>Knowledge Check:</strong><br>
+What play is considered a landmark of Absurdism?
+<br><br>
+<button onclick="showAnswer('a6')">Show Answer</button>
+<div class="answer" id="a6">Waiting for Godot.</div>
+</div>
+
+</div>
+</div>
+
+<!-- Postwar -->
+<div class="period">
+<button onclick="toggleContent('postwar')">
+Post-War Theatre, Political Drama & Broadway (1945–1980)
+</button>
+
+<div class="content" id="postwar">
+
+<h3>Key Trends</h3>
+<ul>
+<li>Political activism in theatre</li>
+<li>Social criticism</li>
+<li>Epic Theatre</li>
+<li>Rise of Broadway musicals</li>
+</ul>
+
+<h3>Key Figures</h3>
+<ul>
+<li>Bertolt Brecht</li>
+<li>Arthur Miller</li>
+<li>Tennessee Williams</li>
+</ul>
+
+<div class="reminder">
+Remember: Brecht wanted audiences to think critically instead of becoming emotionally absorbed.
+</div>
+
+<div class="quiz">
+<strong>Knowledge Check:</strong><br>
+What was Brecht's famous audience-distancing technique called?
+<br><br>
+<button onclick="showAnswer('a7')">Show Answer</button>
+<div class="answer" id="a7">The Alienation Effect (Verfremdungseffekt).</div>
+</div>
+
+</div>
+</div>
+
+<!-- Contemporary -->
+<div class="period">
+<button onclick="toggleContent('contemporary')">
+Contemporary & Global Theatre (1980–Present)
+</button>
+
+<div class="content" id="contemporary">
+
+<h3>Current Trends</h3>
+<ul>
+<li>Diverse voices and perspectives</li>
+<li>Global storytelling</li>
+<li>Digital theatre</li>
+<li>Immersive experiences</li>
+<li>Identity and social justice themes</li>
+</ul>
+
+<div class="reminder">
+Remember: Contemporary theatre reflects an increasingly interconnected world.
+</div>
+
+<div class="quiz">
+<strong>Knowledge Check:</strong><br>
+Name one way technology has influenced contemporary theatre.
+<br><br>
+<button onclick="showAnswer('a8')">Show Answer</button>
+<div class="answer" id="a8">Digital projections, livestream performances, multimedia staging, or virtual productions.</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+</body>
+</html>
